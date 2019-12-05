@@ -7,6 +7,9 @@ const users = require("./routes/api/users");
 
 const app = express();
 
+
+app.use("/", express.static("client/build"));
+
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
@@ -30,7 +33,6 @@ mongoose
 // Passport middleware
 app.use(passport.initialize());
 
-app.use("/", express.static("client/build"));
 
 // Passport config
 require("./config/passport")(passport);
